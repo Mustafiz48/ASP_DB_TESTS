@@ -1,0 +1,39 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model IList<ASP_DB_TESTS.Models.BookCharacter>
+
+<a asp-action="AddCharacters" class="btn btn-outline-primary">Add Character</></a>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Character Name</th>
+                <th scope="col">Book Name</th>
+                <th scope="col">Book Author Name</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <th scope="row">@obj.Id</th>
+                    <td> @obj.CharacterName</td>
+                    <td> @obj.book.BookName </td>
+                    <td> @obj.book.AuthorName </td>
+
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}

@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<ASP_DB_TESTS.Models.Book>
+
+<h1> Reading Books can give you a third eye!</h1>
+
+
+
+<a asp-action="AddBook" class="btn btn-outline-primary">Add Book</></a>
+
+@if (Model.Count() > 0)
+{
+    <table class="table table-striped ">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">BookName</th>
+                <th scope="col">BookAuthor</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                    <th scope="row">@obj.Id</th>
+                    <td> @obj.BookName</td>
+                    <td> @obj.AuthorName </td>
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+}
+
+
+else
+{
+    <h1>No heroes are here to save you!</h1>
+}
+<script>
+    function myModal(id) {
+        console.log('id recived: ' + id);
+        document.getElementById('modal_data').value = id;
+    }
+
+</script>

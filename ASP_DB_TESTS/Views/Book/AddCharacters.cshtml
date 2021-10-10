@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model ASP_DB_TESTS.Models.BookCharacter ;
+
+<form method="post" asp-action="AddCharacters">
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="CharacterName">Character Name</label>
+            <input class="form-control" asp-for="CharacterName" placeholder="Character Name">
+            <span asp-validation-for="CharacterName" class="text-danger" />
+
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label asp-for="BookId">Book Name</label>
+            <select class="form-select" aria-label="Default select example" asp-for="BookId">
+                @foreach (var book in ViewBag.booklist)
+                {
+                     <option value="@book.Id">@book.BookName</option>
+                }
+            </select>
+        </div>
+    </div>
+
+
+
+    <button type="submit" class="btn btn-primary"> Add Character</button>
+</form>

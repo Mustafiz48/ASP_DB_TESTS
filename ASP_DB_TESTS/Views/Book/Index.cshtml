@@ -24,11 +24,12 @@
         <tbody>
             @foreach (var obj in Model)
             {
-                <tr>
-                    <th scope="row">@obj.Id</th>
-                    <td> @obj.BookName</td>
-                    <td> @obj.AuthorName </td>
-                </tr>
+            <tr>
+                <th scope="row">@obj.Id</th>
+                <td><a href="@Url.Action("CharacterOfBook", "Book", new {id = @obj.Id})">  @obj.BookName</a> </td>
+
+                <td> @obj.AuthorName </td>
+            </tr>
             }
 
 

@@ -81,6 +81,15 @@ namespace ASP_DB_TESTS.Controllers
             _db.SaveChanges();
             return RedirectToAction("BookCharacter");
         }
+        
+        public IActionResult CharacterOfBook(int id)
+        {
+
+            Book book = _db.Books.Include(x => x.character).Single( x => x.Id == id);
+
+            return View(book);
+        }
+
 
     }
 }
